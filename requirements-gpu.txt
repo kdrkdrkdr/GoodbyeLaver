@@ -1,0 +1,16 @@
+numpy
+scipy
+Pillow
+cython
+matplotlib
+scikit-image
+tensorflow-gpu==1.9
+keras==2.2.0
+opencv-python
+h5py
+imgaug
+IPython[all]
+pandas>=0.23.1
+http://download.pytorch.org/whl/cu92/torch-0.4.1-cp35-cp35m-linux_x86_64.whl
+torchvision>=0.2.1
+ffmpeg-python
