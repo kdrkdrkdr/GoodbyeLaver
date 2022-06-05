@@ -42,15 +42,15 @@ def make_mask(detected_image):
 
 
 
-if __name__ == '__main__':
+def image_inpainting():
 
     for i in listdir('/content/image_detected/'):
         mask = make_mask(f'/content/image_detected/{i}')
-        print('mask 완료')
+        print('mask 완료 -> ', i)
 
         run_inpaint(
             image_path=f'/content/image_original/{i}',
             mask_path=mask,
             output_path=f'/content/image_uncensored/{i}'
         )
-        print('inpaint 완료')
+        print('inpaint 완료 -> ', i)
