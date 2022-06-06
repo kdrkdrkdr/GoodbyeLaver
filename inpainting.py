@@ -42,15 +42,25 @@ def make_mask(detected_image):
 
 
 
-def image_inpainting():
+if __name__ == '__main__':
 
-    for i in listdir('/content/image_detected/'):
-        mask = make_mask('/content/image_detected/{}'.format(i))
-        print('mask 완료 -> ', i)
+    original_image = [i for i in listdir('/content/image_original/') \
+        if (i.endswith('.jpg') or i.endswith('.png') or i.endswith('.jpeg') or i.endswith('.jpeg'))
+    ]
+
+    detected_image = [i for i in listdir('/content/image_detected/') \
+        if (i.endswith('.jpg') or i.endswith('.png') or i.endswith('.jpeg') or i.endswith('.jpeg'))
+    ]
+
+    for o, d in zip(original_image, detected_image):
+        img = '/content/image_original/{}'.format(o)
+        print("original_image ->", img)
+        mask = make_mask('/content/image_detected/{}'.format(d))
+        print('mask 완료 ->', mask)
 
         run_inpaint(
-            image_path='/content/image_original/{}'.format(i),
+            image_path=img,
             mask_path=mask,
-            output_path='/content/image_uncensored/{}'.format(i)
+            output_path='/content/image_uncensored/{}'.format(o)
         )
-        print('inpaint 완료 -> ', i)
+        print('inpaint 완료 ->', '/content/image_uncensored/{}'.format(o))
