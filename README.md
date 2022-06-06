@@ -5,4 +5,5 @@ Laver means censored bar.
 This project is designed to automate the process of eliminating censorship through lama-inpainting and hent-AI.
 
 ### Usage
+You must set runtime as GPU.
 Open the [GOODBYE_LAVER.ipynb](https://colab.research.google.com/drive/1MJ6w3nCzVfAX2bwEdxkPfgzQgAa12oFu?usp=sharing) file in colab.
