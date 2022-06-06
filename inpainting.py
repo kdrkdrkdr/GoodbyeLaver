@@ -56,11 +56,11 @@ if __name__ == '__main__':
         img = '/content/image_original/{}'.format(o)
         print("original_image ->", img)
         mask = make_mask('/content/image_detected/{}'.format(d))
-        print('mask 완료 ->', mask)
+        print('masked completed ->', mask)
 
         run_inpaint(
             image_path=img,
             mask_path=mask,
             output_path='/content/image_uncensored/{}'.format(o)
         )
-        print('inpaint 완료 ->', '/content/image_uncensored/{}'.format(o))
+        print('inpaint completed ->', '/content/image_uncensored/{}'.format(o), '\n')
