@@ -45,17 +45,21 @@ def make_mask(detected_image):
 if __name__ == '__main__':
 
     original_image = [i for i in listdir('/content/image_original/') if i.endswith('.png')]
-    detected_image = [i for i in listdir('/content/image_detected/') if i.endswith('.png')]
 
-    for o, d in zip(original_image, detected_image):
-        img = '/content/image_original/{}'.format(o)
-        print("original_image ->", img)
-        mask = make_mask('/content/image_detected/{}'.format(d))
-        print('masked completed ->', mask)
+    for o in original_image:
+        try:
+            img = '/content/image_original/{}'.format(o)
+            print("original_image ->", img)
+            mask = make_mask('/content/image_detected/{}.png'.format(o[:-4]))
+            print('masked completed ->', mask)
 
-        run_inpaint(
-            image_path=img,
-            mask_path=mask,
-            output_path='/content/image_uncensored/{}'.format(o)
-        )
-        print('inpaint completed ->', '/content/image_uncensored/{}'.format(o), '\n')
+            run_inpaint(
+                image_path=img,
+                mask_path=mask,
+                output_path='/content/image_uncensored/{}'.format(o)
+            )
+            print('inpaint completed ->', '/content/image_uncensored/{}'.format(o), '\n')
+        
+        
+        except Exception as e:
+            print(e)
