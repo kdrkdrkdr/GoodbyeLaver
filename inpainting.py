@@ -43,19 +43,10 @@ def make_mask(detected_image):
 
 
 if __name__ == '__main__':
-    original_image = []
-    for i in listdir('/content/image_original/'):
-        j = i.lower()
-        if (j.endswith('.jpg') or j.endswith('.png') or j.endswith('.jpeg') or j.endswith('.webp')):
-            original_image.append(i)
 
-    detected_image = []
-    for i in listdir('/content/image_original/'):
-        j = i.lower()
-        if (j.endswith('.jpg') or j.endswith('.png') or j.endswith('.jpeg') or j.endswith('.webp')):
-            detected_image.append(i)
+    original_image = [i for i in listdir('/content/image_original/') if i.endswith('.png')]
+    detected_image = [i for i in listdir('/content/image_detected/') if i.endswith('.png')]
 
-            
     for o, d in zip(original_image, detected_image):
         img = '/content/image_original/{}'.format(o)
         print("original_image ->", img)
