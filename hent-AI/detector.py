@@ -577,9 +577,10 @@ class Detector():
             # obtain inputs from the input folder
             img_list = []
             for file in os.listdir(str(input_folder)):
-                file_s = str(file).lower()
+                file_s = str(file).replace('//', '')
+                f = file_s.lower()
                 try:
-                    if (file_s.endswith('.jpg') or file_s.endswith('.png') or file_s.endswith('.jpeg') or file_s.endswith('.webp')):
+                    if f.endswith('.png') or f.endswith('.PNG') or f.endswith(".jpg") or f.endswith(".JPG"):
                         img_list.append((input_folder + '/' + file_s, file_s))
                 except:
                     print("ERROR in run_on_folder: File parsing. file=", file_s)
