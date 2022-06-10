@@ -45,11 +45,11 @@ def make_mask(detected_image):
 if __name__ == '__main__':
 
     original_image = [i for i in listdir('/content/image_original/') \
-        if (i.endswith('.jpg') or i.endswith('.png') or i.endswith('.jpeg') or i.endswith('.jpeg'))
+        if (i.endswith('.jpg') or i.endswith('.png') or i.endswith('.jpeg') or i.endswith('.webp'))
     ]
 
     detected_image = [i for i in listdir('/content/image_detected/') \
-        if (i.endswith('.jpg') or i.endswith('.png') or i.endswith('.jpeg') or i.endswith('.jpeg'))
+        if (i.endswith('.jpg') or i.endswith('.png') or i.endswith('.jpeg') or i.endswith('.webp'))
     ]
 
     for o, d in zip(original_image, detected_image):
